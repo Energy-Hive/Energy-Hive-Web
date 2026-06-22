@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Hive - Portable Solar-Powered Energy & Cooling Hub</title>
+    <meta name="description" content="Energy Hive: A portable solar-powered energy and cooling hub for rural communities. Reduce food spoilage, provide clean electricity, and promote sustainable development.">
+    <meta name="keywords" content="Solar Energy, Cooling Hub, Rural Development, Sustainable Technology, Clean Energy">
+    <meta name="author" content="Energy Hive Team">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i> Energy Hive
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#problem" class="nav-link">Problem</a>
+                <a href="#solution" class="nav-link">Solution</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#sdg" class="nav-link">SDG</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="solar-animation"></div>
+            <div class="energy-particles"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Energy Hive</h1>
+            <p class="hero-subtitle">Portable Solar-Powered Energy and Cooling Hub for Rural Communities</p>
+            <p class="hero-tagline">Powering Lives. Preserving Futures.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('solution').scrollIntoView({behavior: 'smooth'})">Explore Solution</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('impact').scrollIntoView({behavior: 'smooth'})">View Impact</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3 class="stat-number">50%</h3>
+                    <p>Food Spoilage Reduction</p>
+                </div>
+                <div class="stat">
+                    <h3 class="stat-number">Countless</h3>
+                    <p>Lives Saved & Impacted</p>
+                </div>
+                <div class="stat">
+                    <h3 class="stat-number">Invaluable</h3>
+                    <p>Environmental Impact Saved</p>
+                </div>
+            </div>
+        </div>
+        <div class="floating-icons">
+            <div class="icon-float" style="--delay: 0s"><i class="fas fa-sun"></i></div>
+            <div class="icon-float" style="--delay: 0.5s"><i class="fas fa-bolt"></i></div>
+            <div class="icon-float" style="--delay: 1s"><i class="fas fa-snowflake"></i></div>
+            <div class="icon-float" style="--delay: 1.5s"><i class="fas fa-leaf"></i></div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section problem-section">
+        <div class="container">
+            <h2 class="section-title">The Challenge</h2>
+            <p class="section-subtitle">Understanding the Critical Issues in Rural Communities</p>
+            <div class="problem-grid">
+                <div class="problem-card" data-aos="fade-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-wifi-slash"></i>
+                    </div>
+                    <h3>Unreliable Electricity</h3>
+                    <p>Over 700 million people lack access to reliable electricity, limiting economic and educational opportunities.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" style="--delay: 0.1s">
+                    <div class="problem-icon">
+                        <i class="fas fa-apple"></i>
+                    </div>
+                    <h3>Food Spoilage</h3>
+                    <p>Without refrigeration, 14% of global food production is lost post-harvest, creating economic hardship for farmers.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" style="--delay: 0.2s">
+                    <div class="problem-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Lack of Cooling</h3>
+                    <p>Medicines, vaccines, and perishable goods deteriorate quickly without proper temperature control.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" style="--delay: 0.3s">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Economic Losses</h3>
+                    <p>Farmers lose $40+ per ton due to spoilage, creating cycles of poverty in rural areas.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" style="--delay: 0.4s">
+                    <div class="problem-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Climate Crisis</h3>
+                    <p>Diesel generators contribute to carbon emissions, accelerating climate change and environmental degradation.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" style="--delay: 0.5s">
+                    <div class="problem-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>Limited Sustainability</h3>
+                    <p>Traditional energy solutions are unsustainable and inaccessible for off-grid, underdeveloped regions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section solution-section">
+        <div class="container">
+            <h2 class="section-title">Meet Energy Hive</h2>
+            <p class="section-subtitle">A Complete Renewable Energy and Cooling Solution</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Solar Power Generation</h3>
+                    <p>Foldable solar panels generate clean, renewable electricity with zero emissions.</p>
+                    <div class="feature-bar"><div class="feature-fill" style="width: 100%"></div></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Smart Battery Storage</h3>
+                    <p>Advanced battery systems store energy for 24/7 power supply, even at night.</p>
+                    <div class="feature-bar"><div class="feature-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❄️</div>
+                    <h3>Thermoelectric Cooling</h3>
+                    <p>Preserve vegetables, milk, medicines, and perishable goods at optimal temperatures.</p>
+                    <div class="feature-bar"><div class="feature-fill" style="width: 95%"></div></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Device Charging</h3>
+                    <p>Power multiple devices simultaneously with USB ports and wireless charging.</p>
+                    <div class="feature-bar"><div class="feature-fill" style="width: 88%"></div></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>LED Lighting</h3>
+                    <p>High-efficiency LED lights provide bright illumination for homes, farms, and clinics.</p>
+                    <div class="feature-bar"><div class="feature-fill" style="width: 92%"></div></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Sustainable Energy</h3>
+                    <p>100% renewable, zero-emission technology supporting global sustainability goals.</p>
+                    <div class="feature-bar"><div class="feature-fill" style="width: 100%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">The Energy Hive Process Flow</p>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">☀️</div>
+                    <div class="step-title">Sunlight</div>
+                    <div class="step-desc">Solar rays hit the panels</div>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">⚙️</div>
+                    <div class="step-title">Solar Panel</div>
+                    <div class="step-desc">Converts light to electricity</div>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">🔋</div>
+                    <div class="step-title">Battery Storage</div>
+                    <div class="step-desc">Stores energy safely</div>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">⚡</div>
+                    <div class="step-title">Power Distribution</div>
+                    <div class="step-desc">Delivers power when needed</div>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">❄️💡</div>
+                    <div class="step-title">Cooling & Charging</div>
+                    <div class="step-desc">Powers cooling and devices</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section impact-section">
+        <div class="container">
+            <h2 class="section-title">Measurable Impact</h2>
+            <p class="section-subtitle">Transforming Rural Communities Globally</p>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number" data-target="50">0</div>
+                    <div class="impact-unit">%</div>
+                    <h3>Food Spoilage Reduction</h3>
+                    <p>Thermoelectric cooling significantly reduces post-harvest losses</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="24">0</div>
+                    <div class="impact-unit">/7</div>
+                    <h3>24/7 Power Access</h3>
+                    <p>Reliable electricity for homes, farms, healthcare, and education</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="100">0</div>
+                    <div class="impact-unit">kg</div>
+                    <h3>CO₂ Emissions Saved</h3>
+                    <p>Per unit annually vs. traditional diesel generators</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="10">0</div>
+                    <div class="impact-unit">y</div>
+                    <h3>Lifespan</h3>
+                    <p>Durable design built for long-term rural use</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="80">0</div>
+                    <div class="impact-unit">%</div>
+                    <h3>Cost Savings</h3>
+                    <p>Reduction in energy expenses compared to fossil fuels</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="7">0</div>
+                    <div class="impact-unit">SDG</div>
+                    <h3>UN Goals Supported</h3>
+                    <p>Contributing to multiple Sustainable Development Goals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SDG Section -->
+    <section id="sdg" class="section sdg-section">
+        <div class="container">
+            <h2 class="section-title">Aligned with UN Sustainable Development Goals</h2>
+            <p class="section-subtitle">Energy Hive Supports Global Sustainability</p>
+            <div class="sdg-grid">
+                <div class="sdg-card" data-sdg="2">
+                    <div class="sdg-number">2</div>
+                    <h3>Zero Hunger</h3>
+                    <p>Reducing food spoilage through refrigeration</p>
+                </div>
+                <div class="sdg-card" data-sdg="3">
+                    <div class="sdg-number">3</div>
+                    <h3>Good Health & Well-Being</h3>
+                    <p>Preserving medicines and enabling healthcare</p>
+                </div>
+                <div class="sdg-card" data-sdg="7">
+                    <div class="sdg-number">7</div>
+                    <h3>Affordable & Clean Energy</h3>
+                    <p>Sustainable, cost-effective power for all</p>
+                </div>
+                <div class="sdg-card" data-sdg="9">
+                    <div class="sdg-number">9</div>
+                    <h3>Innovation & Infrastructure</h3>
+                    <p>Cutting-edge technology for rural development</p>
+                </div>
+                <div class="sdg-card" data-sdg="11">
+                    <div class="sdg-number">11</div>
+                    <h3>Sustainable Cities & Communities</h3>
+                    <p>Building resilient, sustainable communities</p>
+                </div>
+                <div class="sdg-card" data-sdg="12">
+                    <div class="sdg-number">12</div>
+                    <h3>Responsible Consumption</h3>
+                    <p>Reducing waste and promoting sustainability</p>
+                </div>
+                <div class="sdg-card" data-sdg="13">
+                    <div class="sdg-number">13</div>
+                    <h3>Climate Action</h3>
+                    <p>Zero-emission energy solution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title">Project Gallery</h2>
+            <p class="section-subtitle">Visual Overview of Energy Hive</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="https://gmrt.shailani.com/gmrt2026/74.jpg" alt="Energy Hive Prototype Model" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:15px;" />
+                        <p>Prototype Model</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="images/circuit-diagram.png" alt="Energy Hive Circuit Diagram" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:15px;" />
+                        <p>Circuit Diagram</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="images/field-deployment.png" alt="Energy Hive Field Deployment" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:15px;" />
+                        <p>Field Deployment</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="images/data-analytics.png" alt="Energy Hive Data & Analytics Dashboard" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:15px;" />
+                        <p>Data & Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section roadmap-section">
+        <div class="container">
+            <h2 class="section-title">Future Roadmap</h2>
+            <p class="section-subtitle">Evolution of Energy Hive</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">Phase 1</div>
+                    <h3>Current Version</h3>
+                    <p>Solar power, battery storage, thermoelectric cooling, charging ports</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Phase 2</div>
+                    <h3>AI-Powered Prediction</h3>
+                    <p>Machine learning for optimal energy management and cooling</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Phase 3</div>
+                    <h3>IoT Monitoring</h3>
+                    <p>Real-time monitoring and remote control via mobile app</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Phase 4</div>
+                    <h3>Smart Mobile App</h3>
+                    <p>User-friendly application for control and monitoring</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Phase 5</div>
+                    <h3>Larger Scale</h3>
+                    <p>Industrial-grade versions for bigger communities</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Phase 6</div>
+                    <h3>Smart Village</h3>
+                    <p>Integrated systems for complete off-grid village solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section team-section">
+        <div class="container">
+            <h2 class="section-title">Our Team & Vision</h2>
+            <p class="section-subtitle">Dedicated to Sustainable Innovation</p>
+            <div class="team-content">
+                <div class="team-info">
+                    <h3>Project Creators</h3>
+                    <p class="team-name">Vedant Pandey and Siddhant Pandey</p>
+                    <p class="team-desc">Students Interested in Innovation and Engineering focused on sustainable rural development solutions</p>
+                </div>
+                <div class="team-divider"></div>
+                <div class="team-info">
+                    <h3>School/Institution</h3>
+                    <p class="team-name">Salwan Boys Senior Secondary School</p>
+                </div>
+            </div>
+            <div class="mission-statement">
+                <h3>Mission Statement</h3>
+                <p>Energy Hive aims to revolutionize rural energy access and food preservation through portable, affordable, renewable solar technology. We envision empowered communities with sustainable livelihoods, reduced food waste, improved healthcare, and positive environmental impact.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Share Your Feedback or Partnership Opportunities</p>
+            <div class="contact-wrapper">
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-note" style="padding: 2rem; background: rgba(255,255,255,0.85); border-radius: 20px; border: 1px solid rgba(34,197,94,0.15);">
+                        <h4 style="margin-bottom: 0.75rem; color: var(--text-dark);">Send Feedback</h4>
+                        <p style="color: var(--text-light); margin-bottom: 0.5rem;">Your message will be sent directly to our team at <strong>pandey28siddhant@gmail.com</strong>.</p>
+                        <p style="color: var(--text-light); margin: 0;">Please share your ideas, questions, or project feedback and we’ll respond as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Energy Hive</h4>
+                    <p>Powering Lives. Preserving Futures.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solution">Solution</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="http://127.0.0.1:5501/#">Privacy Policy</a></li>
+                        <li><a href="http://127.0.0.1:5501/#">Terms of Service</a></li>
+                        <li><a href="http://127.0.0.1:5501/#">Sustainability Report</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Energy Hive. All rights reserved. Sustainable innovation for a better future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
