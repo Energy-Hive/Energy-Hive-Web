@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Hive - Portable Solar-Powered Energy & Cooling Hub</title>
-    <meta name="description" content="Energy Hive: A portable solar-powered energy and cooling hub for rural communities. Reduce food spoilage, provide clean electricity, and promote sustainable development.">
-    <meta name="keywords" content="Solar Energy, Cooling Hub, Rural Development, Sustainable Technology, Clean Energy">
+    <title>Energy Hive | Portable Solar Energy & Cooling Hub for Rural Communities</title>
+    <meta name="description" content="Energy Hive is a portable solar-powered energy and cooling hub that helps rural communities access reliable electricity, preserve food, and support sustainable development.">
+    <meta name="keywords" content="solar energy, portable solar hub, rural energy solution, solar cooling system, sustainable energy, clean energy for villages">
     <meta name="author" content="Energy Hive Team">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="theme-color" content="#16A34A">
+    <link rel="canonical" href="https://energyhive.example/">
+    <link rel="icon" type="image/svg+xml" href="images/og-image.svg">
+    <meta property="og:title" content="Energy Hive | Portable Solar Energy & Cooling Hub">
+    <meta property="og:description" content="Reliable solar power and cooling for rural communities, reducing food spoilage and improving quality of life.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://energyhive.example/">
+    <meta property="og:image" content="https://energyhive.example/images/og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Energy Hive | Portable Solar Energy & Cooling Hub">
+    <meta name="twitter:description" content="Portable solar-powered energy and cooling for communities facing unreliable electricity and food spoilage.">
+    <meta name="twitter:image" content="https://energyhive.example/images/og-image.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Energy Hive",
+      "description": "A portable solar-powered energy and cooling hub designed for rural communities.",
+      "image": "https://energyhive.example/images/og-image.svg",
+      "brand": {
+        "@type": "Organization",
+        "name": "Energy Hive"
+      },
+      "category": "Renewable Energy",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -77,6 +109,56 @@
         </div>
     </section>
 
+    <section id="simulator" class="section simulator-section">
+        <div class="container">
+            <h2 class="section-title">Try the Energy Hive Impact Simulator</h2>
+            <p class="section-subtitle">Adjust the controls and see how the system can protect food, power devices, and reduce energy waste in real time.</p>
+            <div class="simulator-shell">
+                <div class="simulator-controls">
+                    <div class="scenario-pills" role="group" aria-label="Choose a scenario">
+                        <button type="button" class="scenario-pill active" data-scenario="market">Village Market</button>
+                        <button type="button" class="scenario-pill" data-scenario="clinic">Clinic</button>
+                        <button type="button" class="scenario-pill" data-scenario="school">School</button>
+                    </div>
+
+                    <label class="control-label" for="householdInput">Households served <span id="householdValue">120</span></label>
+                    <input id="householdInput" type="range" min="20" max="500" step="10" value="120">
+
+                    <label class="control-label" for="outageInput">Daily outage hours <span id="outageValue">6</span></label>
+                    <input id="outageInput" type="range" min="2" max="12" step="1" value="6">
+
+                    <label class="control-label" for="coolingInput">Cooling demand <span id="coolingValue">75</span>%</label>
+                    <input id="coolingInput" type="range" min="30" max="100" step="5" value="75">
+
+                    <button type="button" id="runSimulation" class="btn btn-primary">Run Simulation</button>
+                </div>
+
+                <div class="simulator-results" aria-live="polite">
+                    <div class="result-card">
+                        <p class="result-label">Food preserved</p>
+                        <h3 id="foodValue">864 kg</h3>
+                        <span>per month</span>
+                    </div>
+                    <div class="result-card">
+                        <p class="result-label">Backup power</p>
+                        <h3 id="backupValue">8 hrs</h3>
+                        <span>daily resilience</span>
+                    </div>
+                    <div class="result-card">
+                        <p class="result-label">CO₂ avoided</p>
+                        <h3 id="co2Value">270 kg</h3>
+                        <span>per month</span>
+                    </div>
+                    <div class="result-card result-card-accent">
+                        <p class="result-label">Impact score</p>
+                        <h3 id="scoreValue">92</h3>
+                        <span id="simulatorMessage">A strong community-wide impact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Problem Section -->
     <section id="problem" class="section problem-section">
         <div class="container">
@@ -85,14 +167,14 @@
             <div class="problem-grid">
                 <div class="problem-card" data-aos="fade-up">
                     <div class="problem-icon">
-                        <i class="fas fa-wifi-slash"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Unreliable Electricity</h3>
                     <p>Over 700 million people lack access to reliable electricity, limiting economic and educational opportunities.</p>
                 </div>
                 <div class="problem-card" data-aos="fade-up" style="--delay: 0.1s">
                     <div class="problem-icon">
-                        <i class="fas fa-apple"></i>
+                        <i class="fas fa-temperature-high"></i>
                     </div>
                     <h3>Food Spoilage</h3>
                     <p>Without refrigeration, 14% of global food production is lost post-harvest, creating economic hardship for farmers.</p>
@@ -139,37 +221,37 @@
                     <div class="feature-icon">⚡</div>
                     <h3>Solar Power Generation</h3>
                     <p>Foldable solar panels generate clean, renewable electricity with zero emissions.</p>
-                    <div class="feature-bar"><div class="feature-fill" style="width: 100%"></div></div>
+                    <div class="feature-bar"><div class="feature-fill" style="--fill-width: 100%"></div></div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔋</div>
                     <h3>Smart Battery Storage</h3>
                     <p>Advanced battery systems store energy for 24/7 power supply, even at night.</p>
-                    <div class="feature-bar"><div class="feature-fill" style="width: 90%"></div></div>
+                    <div class="feature-bar"><div class="feature-fill" style="--fill-width: 100%"></div></div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">❄️</div>
                     <h3>Thermoelectric Cooling</h3>
                     <p>Preserve vegetables, milk, medicines, and perishable goods at optimal temperatures.</p>
-                    <div class="feature-bar"><div class="feature-fill" style="width: 95%"></div></div>
+                    <div class="feature-bar"><div class="feature-fill" style="--fill-width: 100%"></div></div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
                     <h3>Device Charging</h3>
                     <p>Power multiple devices simultaneously with USB ports and wireless charging.</p>
-                    <div class="feature-bar"><div class="feature-fill" style="width: 88%"></div></div>
+                    <div class="feature-bar"><div class="feature-fill" style="--fill-width: 100%"></div></div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💡</div>
                     <h3>LED Lighting</h3>
                     <p>High-efficiency LED lights provide bright illumination for homes, farms, and clinics.</p>
-                    <div class="feature-bar"><div class="feature-fill" style="width: 92%"></div></div>
+                    <div class="feature-bar"><div class="feature-fill" style="--fill-width: 100%"></div></div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🌱</div>
                     <h3>Sustainable Energy</h3>
                     <p>100% renewable, zero-emission technology supporting global sustainability goals.</p>
-                    <div class="feature-bar"><div class="feature-fill" style="width: 100%"></div></div>
+                    <div class="feature-bar"><div class="feature-fill" style="--fill-width: 100%"></div></div>
                 </div>
             </div>
         </div>
@@ -187,28 +269,28 @@
                     <div class="step-title">Sunlight</div>
                     <div class="step-desc">Solar rays hit the panels</div>
                 </div>
-                <div class="arrow">↓</div>
+                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <div class="step-icon">⚙️</div>
                     <div class="step-title">Solar Panel</div>
                     <div class="step-desc">Converts light to electricity</div>
                 </div>
-                <div class="arrow">↓</div>
+                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <div class="step-icon">🔋</div>
                     <div class="step-title">Battery Storage</div>
                     <div class="step-desc">Stores energy safely</div>
                 </div>
-                <div class="arrow">↓</div>
+                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <div class="step-icon">⚡</div>
                     <div class="step-title">Power Distribution</div>
                     <div class="step-desc">Delivers power when needed</div>
                 </div>
-                <div class="arrow">↓</div>
+                <div class="process-arrow">→</div>
                 <div class="process-step">
                     <div class="step-number">5</div>
                     <div class="step-icon">❄️💡</div>
@@ -272,36 +354,43 @@
             <p class="section-subtitle">Energy Hive Supports Global Sustainability</p>
             <div class="sdg-grid">
                 <div class="sdg-card" data-sdg="2">
+                    <img src="images/sdg-2.svg" alt="SDG 2 Zero Hunger illustration" class="sdg-image" />
                     <div class="sdg-number">2</div>
                     <h3>Zero Hunger</h3>
                     <p>Reducing food spoilage through refrigeration</p>
                 </div>
                 <div class="sdg-card" data-sdg="3">
+                    <img src="images/sdg-3.svg" alt="SDG 3 Good Health illustration" class="sdg-image" />
                     <div class="sdg-number">3</div>
                     <h3>Good Health & Well-Being</h3>
                     <p>Preserving medicines and enabling healthcare</p>
                 </div>
                 <div class="sdg-card" data-sdg="7">
+                    <img src="images/sdg-7.svg" alt="SDG 7 Affordable Clean Energy illustration" class="sdg-image" />
                     <div class="sdg-number">7</div>
                     <h3>Affordable & Clean Energy</h3>
                     <p>Sustainable, cost-effective power for all</p>
                 </div>
                 <div class="sdg-card" data-sdg="9">
+                    <img src="images/sdg-9.svg" alt="SDG 9 Innovation and Infrastructure illustration" class="sdg-image" />
                     <div class="sdg-number">9</div>
                     <h3>Innovation & Infrastructure</h3>
                     <p>Cutting-edge technology for rural development</p>
                 </div>
                 <div class="sdg-card" data-sdg="11">
+                    <img src="images/sdg-11.svg" alt="SDG 11 Sustainable Cities illustration" class="sdg-image" />
                     <div class="sdg-number">11</div>
                     <h3>Sustainable Cities & Communities</h3>
                     <p>Building resilient, sustainable communities</p>
                 </div>
                 <div class="sdg-card" data-sdg="12">
+                    <img src="images/sdg-12.svg" alt="SDG 12 Responsible Consumption illustration" class="sdg-image" />
                     <div class="sdg-number">12</div>
                     <h3>Responsible Consumption</h3>
                     <p>Reducing waste and promoting sustainability</p>
                 </div>
                 <div class="sdg-card" data-sdg="13">
+                    <img src="images/sdg-13.svg" alt="SDG 13 Climate Action illustration" class="sdg-image" />
                     <div class="sdg-number">13</div>
                     <h3>Climate Action</h3>
                     <p>Zero-emission energy solution</p>
@@ -434,10 +523,10 @@
                     </form>
                 </div>
                 <div class="contact-info">
-                    <div class="contact-note" style="padding: 2rem; background: rgba(255,255,255,0.85); border-radius: 20px; border: 1px solid rgba(34,197,94,0.15);">
-                        <h4 style="margin-bottom: 0.75rem; color: var(--text-dark);">Send Feedback</h4>
-                        <p style="color: var(--text-light); margin-bottom: 0.5rem;">Your message will be sent directly to our team at <strong>pandey28siddhant@gmail.com</strong>.</p>
-                        <p style="color: var(--text-light); margin: 0;">Please share your ideas, questions, or project feedback and we’ll respond as soon as possible.</p>
+                    <div class="contact-note" style="padding: 2rem; background: rgba(255,255,255,0.85); border-radius: 20px; border: 1px solid rgba(34,197,94,0.15); color: #111827;">
+                        <h4 style="margin-bottom: 0.75rem; color: #111827;">Send Feedback</h4>
+                        <p style="color: #374151; margin-bottom: 0.5rem;">Your message will be sent directly to our team at <strong style="color: #166534;">pandey28siddhant@gmail.com</strong>.</p>
+                        <p style="color: #374151; margin: 0;">Please share your ideas, questions, or project feedback and we’ll respond as soon as possible.</p>
                     </div>
                 </div>
             </div>

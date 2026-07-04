@@ -154,6 +154,91 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// ===== IMPACT SIMULATOR =====
+const simulatorPresets = {
+    market: { households: 120, outage: 6, cooling: 75 },
+    clinic: { households: 80, outage: 9, cooling: 90 },
+    school: { households: 150, outage: 5, cooling: 70 }
+};
+
+const householdInput = document.getElementById('householdInput');
+const outageInput = document.getElementById('outageInput');
+const coolingInput = document.getElementById('coolingInput');
+const householdValue = document.getElementById('householdValue');
+const outageValue = document.getElementById('outageValue');
+const coolingValue = document.getElementById('coolingValue');
+const foodValue = document.getElementById('foodValue');
+const backupValue = document.getElementById('backupValue');
+const co2Value = document.getElementById('co2Value');
+const scoreValue = document.getElementById('scoreValue');
+const simulatorMessage = document.getElementById('simulatorMessage');
+const runSimulationBtn = document.getElementById('runSimulation');
+const scenarioButtons = document.querySelectorAll('.scenario-pill');
+
+function animateValue(element, endValue, suffix = '') {
+    const startValue = parseFloat(element.textContent) || 0;
+    const duration = 700;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const value = startValue + (endValue - startValue) * progress;
+        element.textContent = `${Math.round(value)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+}
+
+function updateSimulator() {
+    const households = Number(householdInput.value);
+    const outageHours = Number(outageInput.value);
+    const coolingDemand = Number(coolingInput.value);
+
+    const foodPreserved = Math.round(households * 7.2 * (coolingDemand / 100));
+    const backupHours = Math.round(outageHours * 1.1 + households / 80);
+    const co2Avoided = Math.round(households * 2.1 * (coolingDemand / 100));
+    const score = Math.min(99, Math.round((households / 5) + outageHours * 4 + coolingDemand * 0.3));
+
+    householdValue.textContent = households;
+    outageValue.textContent = outageHours;
+    coolingValue.textContent = coolingDemand;
+
+    animateValue(foodValue, foodPreserved, ' kg');
+    animateValue(backupValue, backupHours, ' hrs');
+    animateValue(co2Value, co2Avoided, ' kg');
+    animateValue(scoreValue, score);
+
+    if (score >= 90) {
+        simulatorMessage.textContent = 'A strong community-wide impact';
+    } else if (score >= 75) {
+        simulatorMessage.textContent = 'Reliable energy for everyday life';
+    } else {
+        simulatorMessage.textContent = 'A meaningful first step toward resilience';
+    }
+}
+
+[householdInput, outageInput, coolingInput].forEach(input => {
+    input.addEventListener('input', updateSimulator);
+});
+
+runSimulationBtn.addEventListener('click', updateSimulator);
+
+scenarioButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        scenarioButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const preset = simulatorPresets[button.dataset.scenario];
+        householdInput.value = preset.households;
+        outageInput.value = preset.outage;
+        coolingInput.value = preset.cooling;
+        updateSimulator();
+    });
+});
+
+updateSimulator();
+
 // ===== CONTACT FORM HANDLING =====
 const contactForm = document.getElementById('contactForm');
 
@@ -189,27 +274,12 @@ if (contactForm) {
 }
 
 function showNotification(message, type) {
-    // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        padding: 15px 25px;
-        background: ${type === 'success' ? '#22C55E' : '#EF4444'};
-        color: white;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        animation: slideInDown 0.3s ease-out;
-        font-weight: 500;
-    `;
 
     document.body.appendChild(notification);
 
-    // Remove notification after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideInDown 0.3s ease-out reverse';
         setTimeout(() => notification.remove(), 300);
