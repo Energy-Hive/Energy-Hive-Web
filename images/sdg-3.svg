@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="SDG 3 illustration">
+  <rect width="120" height="120" rx="24" fill="#f0fdf4"/>
+  <circle cx="60" cy="60" r="34" fill="#ffffff" stroke="#22c55e" stroke-width="6"/>
+  <path d="M60 32v56" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <path d="M32 60h56" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="60" cy="60" r="8" fill="#facc15"/>
+</svg>
