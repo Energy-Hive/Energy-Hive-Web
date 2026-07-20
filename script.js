@@ -42,11 +42,13 @@ const navMenu = document.querySelector('.nav-menu');
 
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         });
     });
@@ -120,22 +122,7 @@ if (document.readyState === 'loading') {
     animateCounters();
 }
 
-// ===== SCROLL REVEAL ANIMATIONS =====
-const revealElements = document.querySelectorAll('[data-aos]');
-
-const revealOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
-            revealOnScroll.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-revealElements.forEach(el => {
-    el.style.opacity = '0';
-    revealOnScroll.observe(el);
-});
+// Scroll Reveal system replaced with unified observer below
 
 // ===== SMOOTH SCROLL FOR NAVIGATION =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -227,26 +214,28 @@ function updateSimulator() {
     }
 }
 
-[householdInput, outageInput, coolingInput].forEach(input => {
-    input.addEventListener('input', updateSimulator);
-});
-
-runSimulationBtn.addEventListener('click', updateSimulator);
-
-scenarioButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        scenarioButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        const preset = simulatorPresets[button.dataset.scenario];
-        householdInput.value = preset.households;
-        outageInput.value = preset.outage;
-        coolingInput.value = preset.cooling;
-        updateSimulator();
+if (householdInput && outageInput && coolingInput && runSimulationBtn) {
+    [householdInput, outageInput, coolingInput].forEach(input => {
+        input.addEventListener('input', updateSimulator);
     });
-});
 
-updateSimulator();
+    runSimulationBtn.addEventListener('click', updateSimulator);
+
+    scenarioButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            scenarioButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const preset = simulatorPresets[button.dataset.scenario];
+            householdInput.value = preset.households;
+            outageInput.value = preset.outage;
+            coolingInput.value = preset.cooling;
+            updateSimulator();
+        });
+    });
+
+    updateSimulator();
+}
 
 // ===== CONTACT FORM HANDLING =====
 const contactForm = document.getElementById('contactForm');
@@ -295,30 +284,41 @@ function showNotification(message, type) {
     }, 3000);
 }
 
-// ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+// ===== UNIFIED SCROLL REVEAL ANIMATIONS =====
+const animatableElements = document.querySelectorAll(
+    '.problem-card, .feature-card, .impact-card, .sdg-card, .timeline-item, .gallery-item, .process-step, .section-title, .section-subtitle, .simulator-shell, .team-content, .mission-statement, .competition-info, .contact-form-wrapper, .contact-info, .info-panel'
+);
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Apply observer to all sections
-document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+animatableElements.forEach(el => {
+    el.classList.add('reveal-item');
 });
 
-// ===== ACTIVE NAV LINK HIGHLIGHTING =====
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    const intersecting = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+
+    intersecting.forEach((entry, index) => {
+        const el = entry.target;
+        const staggerDelay = index * 100;
+        
+        setTimeout(() => {
+            el.classList.add('reveal-visible');
+        }, staggerDelay);
+        
+        observer.unobserve(el);
+    });
+}, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+});
+
+animatableElements.forEach(el => {
+    revealObserver.observe(el);
+});
+
+// ===== ACTIVE HASH NAVIGATION =====
+// Multi-page navigation keeps its active state; this only updates same-page hash links.
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -332,26 +332,31 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = '#22C55E';
-        } else {
-            link.style.color = 'inherit';
-        }
+    if (!current) return;
+
+    document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
 });
 
-// ===== FEATURE CARD HOVER EFFECTS =====
-document.querySelectorAll('.feature-card, .problem-card, .impact-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
+// ===== 3D CARD INTERACTIONS =====
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+    document.querySelectorAll('.feature-card, .problem-card, .impact-card, .sdg-card, .process-step, .timeline-item, .info-panel').forEach(card => {
+        card.classList.add('tilt-card');
+        card.addEventListener('pointermove', (event) => {
+            const bounds = card.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            card.style.setProperty('--card-rotate-x', `${y * -6}deg`);
+            card.style.setProperty('--card-rotate-y', `${x * 7}deg`);
+        });
+        card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--card-rotate-x', '0deg');
+            card.style.setProperty('--card-rotate-y', '0deg');
+        });
     });
-
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
+}
 
 // ===== PARALLAX EFFECT ON HERO =====
 const hero = document.querySelector('.hero');
@@ -366,6 +371,23 @@ if (hero) {
     });
 }
 
+// ===== 3D HERO INTERACTION =====
+const hiveScene = document.querySelector('[data-tilt]');
+if (hiveScene && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    hiveScene.addEventListener('pointermove', (event) => {
+        const bounds = hiveScene.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        hiveScene.style.setProperty('--tilt-x', `${y * -10}deg`);
+        hiveScene.style.setProperty('--tilt-y', `${x * 12}deg`);
+    });
+
+    hiveScene.addEventListener('pointerleave', () => {
+        hiveScene.style.setProperty('--tilt-x', '0deg');
+        hiveScene.style.setProperty('--tilt-y', '0deg');
+    });
+}
+
 // ===== FADE IN HERO CONTENT =====
 window.addEventListener('load', () => {
     const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-tagline, .hero-buttons');
@@ -377,22 +399,7 @@ window.addEventListener('load', () => {
     });
 });
 
-// ===== CARD STAGGER ANIMATION =====
-function staggerCards(selector, delay = 0.1) {
-    const cards = document.querySelectorAll(selector);
-    cards.forEach((card, index) => {
-        card.style.animation = `slideInUp 0.6s ease-out ${index * delay}s forwards`;
-        card.style.opacity = '0';
-    });
-}
-
-// Apply stagger animation to different card types
-window.addEventListener('load', () => {
-    staggerCards('.problem-card', 0.1);
-    staggerCards('.feature-card', 0.1);
-    staggerCards('.impact-card', 0.1);
-    staggerCards('.sdg-card', 0.08);
-});
+// Cards reveal handled by unified observer
 
 // ===== HOVER GLOW EFFECT FOR BUTTONS =====
 document.querySelectorAll('.btn').forEach(button => {
@@ -559,21 +566,7 @@ document.querySelectorAll('.gallery-item').forEach(item => {
     });
 });
 
-// ===== TIMELINE ANIMATION =====
-const timelineItems = document.querySelectorAll('.timeline-item');
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = `slideInUp 0.6s ease-out ${index * 0.2}s forwards`;
-            entry.target.style.opacity = '0';
-            timelineObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 });
-
-timelineItems.forEach(item => {
-    timelineObserver.observe(item);
-});
+// Timeline reveal handled by unified observer
 
 // ===== SMOOTH PAGE TRANSITION =====
 document.addEventListener('DOMContentLoaded', () => {

@@ -46,19 +46,14 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a class="nav-logo" href="index.html" aria-label="Energy Hive home">
                 <i class="fas fa-leaf"></i> Energy Hive
-            </div>
+            </a>
             <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#problem" class="nav-link">Problem</a>
-                <a href="#solution" class="nav-link">Solution</a>
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#impact" class="nav-link">Impact</a>
-                <a href="#sdg" class="nav-link">SDG</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
-                <a href="#roadmap" class="nav-link">Roadmap</a>
-                <a href="#team" class="nav-link">Team</a>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="solution.html" class="nav-link">Solution</a>
+                <a href="impact.html" class="nav-link">Impact</a>
+                <a href="about.html" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
@@ -78,27 +73,29 @@
             <div class="solar-animation"></div>
             <div class="energy-particles"></div>
         </div>
-        <div class="hero-content">
-            <h1 class="hero-title">Energy Hive</h1>
-            <p class="hero-subtitle">Portable Solar-Powered Energy and Cooling Hub for Rural Communities</p>
-            <p class="hero-tagline">Powering Lives. Preserving Futures.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('solution').scrollIntoView({behavior: 'smooth'})">Explore Solution</button>
-                <button class="btn btn-secondary" onclick="document.getElementById('impact').scrollIntoView({behavior: 'smooth'})">View Impact</button>
+        <div class="hero-layout container">
+            <div class="hero-content">
+                <p class="eyebrow"><i class="fas fa-sparkles"></i> Clean energy, made portable</p>
+                <h1 class="hero-title">Energy Hive</h1>
+                <p class="hero-subtitle">Portable solar power and cooling, built for communities that deserve more.</p>
+                <p class="hero-tagline">Powering Lives. Preserving Futures.</p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="solution.html">Explore the solution <i class="fas fa-arrow-right"></i></a>
+                    <a class="btn btn-secondary" href="impact.html">View our impact</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><h3 class="stat-number">50%</h3><p>Less food spoilage</p></div>
+                    <div class="stat"><h3 class="stat-number">24/7</h3><p>Power resilience</p></div>
+                    <div class="stat"><h3 class="stat-number">100%</h3><p>Renewable energy</p></div>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <h3 class="stat-number">50%</h3>
-                    <p>Food Spoilage Reduction</p>
-                </div>
-                <div class="stat">
-                    <h3 class="stat-number">Countless</h3>
-                    <p>Lives Saved & Impacted</p>
-                </div>
-                <div class="stat">
-                    <h3 class="stat-number">Invaluable</h3>
-                    <p>Environmental Impact Saved</p>
-                </div>
+            <div class="hive-scene" data-tilt aria-label="Illustration of the Energy Hive solar power hub">
+                <div class="scene-orbit orbit-one"></div><div class="scene-orbit orbit-two"></div>
+                <div class="solar-panel panel-left"><span></span><span></span><span></span><span></span></div>
+                <div class="solar-panel panel-right"><span></span><span></span><span></span><span></span></div>
+                <div class="hive-core"><div class="core-top"></div><div class="core-light"><i class="fas fa-bolt"></i></div><div class="core-base"></div></div>
+                <div class="scene-label label-energy"><i class="fas fa-bolt"></i> Solar energy</div>
+                <div class="scene-label label-cooling"><i class="fas fa-snowflake"></i> Smart cooling</div>
             </div>
         </div>
         <div class="floating-icons">
@@ -545,8 +542,9 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#solution">Solution</a></li>
-                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="solution.html">Solution</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                        <li><a href="about.html">About the Project</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
